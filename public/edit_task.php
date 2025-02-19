@@ -23,10 +23,9 @@ if (!$task) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $status = isset($_POST['status']) ? 1 : 0; // Concluída ou Pendente
 
-    // Atualiza a tarefa
-    $taskController->updateTask($id, $title, $description, $status);
+    // Atualiza a tarefa (não modificamos o status aqui, já que o status não deve ser alterado na edição)
+    $taskController->updateTask($id, $title, $description, $task['status']); // Mantém o status como estava
 
     // Redireciona para a página principal após a atualização
     header('Location: index.php');
@@ -50,14 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" name="title" value="<?php echo htmlspecialchars($task['title']); ?>" required placeholder="Título da Tarefa">
             <textarea name="description" placeholder="Descrição (opcional)"><?php echo htmlspecialchars($task['description']); ?></textarea>
 
-            <label for="status">Status:</label>
-            <input type="checkbox" name="status" id="status" <?php echo $task['status'] == 1 ? 'checked' : ''; ?>>
-            <label for="status">Concluída</label>
-
             <button type="submit">Salvar Alterações</button>
         </form>
 
-        <a href="index.php">Voltar para a lista de tarefas</a>
+        <a href="index.php" class="back-button">Voltar para a lista de tarefas</a>
     </div>
 </body>
 </html>

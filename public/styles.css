@@ -1,7 +1,4 @@
-/* Importação da fonte Poppins do Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-
-/* Estilo geral da página */
+/* Definindo o estilo geral da página */
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f4f4f9;
@@ -14,36 +11,28 @@ body {
   height: 100vh;
 }
 
-/* Container para o conteúdo */
 .container {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 40px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
-/* Estilo do título principal */
 h1 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  text-align: center;
+  color: #0056b3;
   font-size: 2.5rem;
-  color: #0056b3;
-  text-align: center;
-  margin-bottom: 20px;
 }
 
-/* Estilo do título Tarefas */
 h2 {
-  font-family: "Poppins", sans-serif;
   text-align: center;
-  font-size: 2rem;
   color: #0056b3;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
-/* Estilo para o formulário */
 form {
   display: flex;
   flex-direction: column;
@@ -52,7 +41,7 @@ form {
 
 form input[type="text"],
 form textarea {
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -68,19 +57,23 @@ form button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
 form button:hover {
   background: linear-gradient(135deg, #0056b3, #007bff);
+  transform: scale(1.02);
 }
 
-/* Estilo da tabela */
+form button:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transform: scale(0.98);
+}
+
 table {
   width: 100%;
   margin-top: 30px;
   border-collapse: collapse;
-  font-size: 1rem;
 }
 
 table th,
@@ -101,10 +94,9 @@ table td {
 }
 
 table tr:hover {
-  background-color: #f9f9f9;
+  background-color: #e6f7ff;
 }
 
-/* Estilo dos botões de ação */
 a {
   background-color: #28a745;
   color: #fff;
@@ -113,11 +105,18 @@ a {
   text-decoration: none;
   font-size: 1rem;
   margin-right: 10px;
-  transition: background 0.3s ease;
+  margin-bottom: 10px;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
 a:hover {
   background-color: #218838;
+  transform: scale(1.05);
+}
+
+a:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
 }
 
 a.delete {
@@ -136,13 +135,25 @@ a.edit:hover {
   background-color: #e0a800;
 }
 
-/* Estilo para o formulário de edição de tarefa */
-textarea {
-  resize: vertical;
-  min-height: 80px;
+/* Estilo do botão "Voltar para a lista de tarefas" */
+a.back-button {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
-/* Ajustes para tornar a página responsiva */
+a.back-button:hover {
+  background-color: #5a6268;
+  transform: scale(1.05);
+}
+
 @media screen and (max-width: 768px) {
   .container {
     padding: 20px;
